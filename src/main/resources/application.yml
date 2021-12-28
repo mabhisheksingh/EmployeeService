@@ -1,0 +1,16 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: employeeService
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:9000/eureka/
+  instance:
+    instance-id: ${spring.cloud.client.hostname}:${server.port}:${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+
+
