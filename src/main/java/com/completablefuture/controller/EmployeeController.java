@@ -16,6 +16,7 @@ import reactor.core.publisher.Flux;
 import javax.annotation.PostConstruct;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/employee")
@@ -51,7 +52,8 @@ public class EmployeeController {
         return ResponseEntity.ok(employeeRespositery.save(employee) );
     }
     @GetMapping("/getAllEmp")
-    public ResponseEntity<List<Employee>> getAllEmp(){
+    public ResponseEntity<List<Employee>> getAllEmp(@RequestHeader Map<String,String> headers){
+        headers.forEach((k, v) -> System.out.println((k + ":" + v)));
         return ResponseEntity.ok(employeeRespositery.getAllEmployee());
     }
     @DeleteMapping(value = "/delete/{id}")

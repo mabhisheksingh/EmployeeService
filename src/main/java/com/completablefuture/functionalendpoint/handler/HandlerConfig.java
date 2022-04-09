@@ -22,4 +22,6 @@ public class HandlerConfig {
                 .contentType(MediaType.TEXT_EVENT_STREAM)
                 .body(list,Employee.class);
     }
+
+
 }
